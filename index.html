@@ -81,15 +81,20 @@
         position:relative;
         top:1px;
       }
-
+      #wrapper {
+        margin: 10px;
+      }
+      #mooseForm {
+        width: 280px;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
-    <iframe src="https://vine.co/v/eLTH5zuqw1w/embed/simple?audio=1" width="300" height="300" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>
-    <form action="">
-         <input type="button" class="moose goodMoose" value="good moose" onclick="window.spawnMoose();"/>
-         <input type="button" class="moose badMoose" value="bad moose" onclick="window.close();"/>
-    </form>
+    <div id="wrapper">
+      <iframe src="https://vine.co/v/eLTH5zuqw1w/embed/simple?audio=1" width="300" height="300" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>
+      <form action="" id=mooseForm></form>
+    </div>
   </body>
   <footer>
     <script type="text/javascript">
@@ -102,9 +107,27 @@
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
           s4() + '-' + s4() + s4() + s4();
       };
+      window.herd = [];
       window.spawnMoose = function(){
-        window.open(window.location.href, 'moose' + guid(), config='height=355, width=300, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no, top=' + Math.ceil((Math.random() * screen.height) + (Math.random() * 100)) + ', left=' + Math.ceil((Math.random() * screen.width) + (Math.random() * 100)));
+        var moose = window.open(window.location.href, 'moose' + guid(), config='height=300, width=300, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no, top=' + Math.ceil((Math.random() * screen.height) + (Math.random() * 100)) + ', left=' + Math.ceil((Math.random() * screen.width) + (Math.random() * 100)));
+        herd.push(moose);
       };
+      window.removeMoose = function(){
+        var moose = herd.shift();
+        if ( typeof(moose) !== 'undefined' ) {
+          moose.close();
+        }
+      }
+
+      // MOOSE CONTROL
+
+      var form = document.getElementById('mooseForm');
+      var goodMoose = '<input type="button" class="moose goodMoose" value="+1 moose" onclick="window.spawnMoose();"/>';
+      var badMoose = '<input type="button" class="moose badMoose" value="-1 moose" onclick="window.removeMoose();"/>';
+      if ( window.name === '' ) {
+        form.innerHTML = goodMoose + badMoose
+      }
+
     </script>
   </footer>
 </html>
