@@ -81,8 +81,19 @@
         position:relative;
         top:1px;
       }
+      body {
+        background-image: url('https://media.giphy.com/media/SotJCbDWOnnWM/giphy.gif');
+        background-size: 100%;
+      }
       #wrapper {
-        margin: 10px;
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
       }
       #mooseForm {
         width: 280px;
@@ -109,12 +120,14 @@
       };
       window.herd = [];
       window.spawnMoose = function(){
-        var moose = window.open(window.location.href, 'moose' + guid(), config='height=300, width=300, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no, top=' + Math.ceil((Math.random() * screen.height) + (Math.random() * 100)) + ', left=' + Math.ceil((Math.random() * screen.width) + (Math.random() * 100)));
+        var moose = window.open(window.location.href, 'moose-' + guid(), config='height=400, width=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no, top=' + Math.ceil((Math.random() * screen.height) + (Math.random() * 100)) + ', left=' + Math.ceil((Math.random() * screen.width) + (Math.random() * 100)));
         herd.push(moose);
       };
       window.removeMoose = function(){
         var moose = herd.shift();
-        if ( typeof(moose) !== 'undefined' ) {
+        if ( typeof(moose) === 'undefined' ) {
+          alert("Sorry!  This is the only moose.  Try adding more.");
+        } else {
           moose.close();
         }
       }
@@ -125,7 +138,10 @@
       var goodMoose = '<input type="button" class="moose goodMoose" value="+1 moose" onclick="window.spawnMoose();"/>';
       var badMoose = '<input type="button" class="moose badMoose" value="-1 moose" onclick="window.removeMoose();"/>';
       if ( window.name === '' ) {
+        document.title = "Moose control";
         form.innerHTML = goodMoose + badMoose
+      } else {
+        document.title = window.name;
       }
 
     </script>
