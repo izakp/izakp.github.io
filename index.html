@@ -2,7 +2,18 @@
 <html lang="en">
   <head>
     <style type="text/css">
-      .mooseButton {
+      .moose {
+        display:inline-block;
+        cursor:pointer;
+        font-family:Arial;
+        font-size:14px;
+        margin-left: 7px;
+        margin-top: 5px;
+        padding:12px 25px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #283966;
+      }
+      .goodMoose {
         -moz-box-shadow: 0px 0px 0px 2px #9fb4f2;
         -webkit-box-shadow: 0px 0px 0px 2px #9fb4f2;
         box-shadow: 0px 0px 0px 2px #9fb4f2;
@@ -18,16 +29,11 @@
         -webkit-border-radius:10px;
         border-radius:10px;
         border:1px solid #4e6096;
-        display:inline-block;
-        cursor:pointer;
         color:#ffffff;
-        font-family:Arial;
-        font-size:19px;
-        padding:12px 37px;
         text-decoration:none;
         text-shadow:0px 1px 0px #283966;
       }
-      .mooseButton:hover {
+      .goodMoose:hover {
         background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #476e9e), color-stop(1, #7892c2));
         background:-moz-linear-gradient(top, #476e9e 5%, #7892c2 100%);
         background:-webkit-linear-gradient(top, #476e9e 5%, #7892c2 100%);
@@ -37,16 +43,52 @@
         filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#476e9e', endColorstr='#7892c2',GradientType=0);
         background-color:#476e9e;
       }
-      .mooseButton:active {
+      .goodMoose:active {
         position:relative;
         top:1px;
       }
+      .badMoose {
+        -moz-box-shadow: 0px 0px 0px 2px #f09e9e;
+        -webkit-box-shadow: 0px 0px 0px 2px #f09e9e;
+        box-shadow: 0px 0px 0px 2px #f09e9e;
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c27878), color-stop(1, #ff3d3d));
+        background:-moz-linear-gradient(top, #c27878 5%, #ff3d3d 100%);
+        background:-webkit-linear-gradient(top, #c27878 5%, #ff3d3d 100%);
+        background:-o-linear-gradient(top, #c27878 5%, #ff3d3d 100%);
+        background:-ms-linear-gradient(top, #c27878 5%, #ff3d3d 100%);
+        background:linear-gradient(to bottom, #c27878 5%, #ff3d3d 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c27878', endColorstr='#ff3d3d',GradientType=0);
+        background-color:#c27878;
+        -moz-border-radius:10px;
+        -webkit-border-radius:10px;
+        border-radius:10px;
+        border:1px solid #8c1919;
+        color:#ffffff;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #66293f;
+      }
+      .badMoose:hover {
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff3d3d), color-stop(1, #c27878));
+        background:-moz-linear-gradient(top, #ff3d3d 5%, #c27878 100%);
+        background:-webkit-linear-gradient(top, #ff3d3d 5%, #c27878 100%);
+        background:-o-linear-gradient(top, #ff3d3d 5%, #c27878 100%);
+        background:-ms-linear-gradient(top, #ff3d3d 5%, #c27878 100%);
+        background:linear-gradient(to bottom, #ff3d3d 5%, #c27878 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3d3d', endColorstr='#c27878',GradientType=0);
+        background-color:#ff3d3d;
+      }
+      .badMoose:active {
+        position:relative;
+        top:1px;
+      }
+
     </style>
   </head>
   <body>
     <iframe src="https://vine.co/v/eLTH5zuqw1w/embed/simple?audio=1" width="300" height="300" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>
-    <form style="margin-left: 40px; margin-top: 5px;" action="">
-         <input type="button" class="mooseButton" value="good little moose" onclick="window.spawnMoose();"/>
+    <form action="">
+         <input type="button" class="moose goodMoose" value="good moose" onclick="window.spawnMoose();"/>
+         <input type="button" class="moose badMoose" value="bad moose" onclick="window.close();"/>
     </form>
   </body>
   <footer>
