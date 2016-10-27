@@ -94,7 +94,7 @@
       window.autoMoose = function(){
         var moose = window.spawnMoose();
         if ( typeof(moose) === 'undefined' ) {
-          alert("For the full auto-moose hypermedia GESAMTKUNSTWERK experience, plz allow popups from " + window.location.href + " ^___^");
+          alert("To let the moose reproduce, allow popups from " + window.location.href);
         }
       };
 
@@ -103,11 +103,11 @@
       if ( window.name === '' ) {
         document.title = "Moose control";
         var form = document.getElementById('mooseForm');
-        var goodMoose = '<input type="button" class="goodMoose" value="make a moose" onclick="window.spawnMoose();"/>';
+        var goodMoose = '<input type="button" class="goodMoose" value="Make a moose" onclick="window.spawnMoose();"/>';
         form.innerHTML = goodMoose;
 
         var herder = document.getElementById('herder');
-        var instructions = '<p>Help Jeb pet all the moose.</p><p>Make a moose yourself.</p><br/><p>Or</p><br/><p>Let us do it for you. Auto-moose.</p><p>How big is your herd?</p><p>Every time you make a moose it will make another.</p><p>You can kill the moose before it produces offspring</p><p>to manintain a constant population.</p><br/><p>Or</p><br/><p>You can let the moose run wild.</p><p>Jeb will sing for you if the herd is just right.</p>';
+        var instructions = '<p>Help Jeb pet all the moose.</p><p>Make a moose.</p><br/><p>Or</p><br/><p>Let the moose run wild.</p><br/><p>Every time you make a moose</p><p>it will attempt to make another.</p><br/><p>You can kill a moose before it produces offspring</p><p>to manintain a constant population.</p><br/><p>A Shepard herd.</p><p>Jeb will sing for you if there is equilibrium.</p>';
         herder.innerHTML = instructions;
       } else {
         document.title = window.name;

@@ -2,20 +2,16 @@
 
 Help Jeb pet all the moose.
 
-Make a moose yourself.
+Make a moose.
 
 Or
 
-Let us do it for you. Auto-moose.
+Let the moose run wild.
 
-How big is your herd?
+Every time you make a moose it will attempt to make another.
 
-Every time you make a moose it will make another.
+You can kill a moose before it produces offspring to manintain a constant population.
 
-You can kill the moose before it produces offspring to manintain a constant population.
+A Shepard herd.
 
-Or
-
-You can let the moose run wild.
-
-Jeb will sing for you if the herd is just right.
+Jeb will sing for you if there is equilibrium.
