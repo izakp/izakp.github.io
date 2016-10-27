@@ -63,9 +63,15 @@
         width: 280px;
         text-align: center;
       }
+      #herder {
+        font-size: 20px;
+        color: #FFF;
+        padding: 10px;
+      }
     </style>
   </head>
   <body>
+    <div id="herder"></div>
     <div id="wrapper">
       <iframe src="https://vine.co/v/eLTH5zuqw1w/embed/simple?audio=1" width="300" height="300" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>
       <form action="" id=mooseForm></form>
@@ -99,6 +105,10 @@
         var form = document.getElementById('mooseForm');
         var goodMoose = '<input type="button" class="goodMoose" value="make a moose" onclick="window.spawnMoose();"/>';
         form.innerHTML = goodMoose;
+
+        var herder = document.getElementById('herder');
+        var instructions = '<p>Help Jeb pet all the moose.</p><p>Make a moose yourself.</p><br/><p>Or</p><br/><p>Let us do it for you. Auto-moose.</p><p>How big is your herd?</p><p>Every time you make a moose it will make another.</p><p>You can kill the moose before it produces offspring</p><p>to manintain a constant population.</p><br/><p>Or</p><br/><p>You can let the moose run wild.</p><p>Jeb will sing for you if the herd is just right.</p>';
+        herder.innerHTML = instructions;
       } else {
         document.title = window.name;
       }
