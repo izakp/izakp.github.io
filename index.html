@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <style type="text/css">
-      .moose {
+      .goodMoose {
         display:inline-block;
         cursor:pointer;
         font-family:Arial;
@@ -12,8 +12,6 @@
         padding:12px 25px;
         text-decoration:none;
         text-shadow:0px 1px 0px #283966;
-      }
-      .goodMoose {
         -moz-box-shadow: 0px 0px 0px 2px #9fb4f2;
         -webkit-box-shadow: 0px 0px 0px 2px #9fb4f2;
         box-shadow: 0px 0px 0px 2px #9fb4f2;
@@ -44,40 +42,6 @@
         background-color:#476e9e;
       }
       .goodMoose:active {
-        position:relative;
-        top:1px;
-      }
-      .badMoose {
-        -moz-box-shadow: 0px 0px 0px 2px #f09e9e;
-        -webkit-box-shadow: 0px 0px 0px 2px #f09e9e;
-        box-shadow: 0px 0px 0px 2px #f09e9e;
-        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c27878), color-stop(1, #ff3d3d));
-        background:-moz-linear-gradient(top, #c27878 5%, #ff3d3d 100%);
-        background:-webkit-linear-gradient(top, #c27878 5%, #ff3d3d 100%);
-        background:-o-linear-gradient(top, #c27878 5%, #ff3d3d 100%);
-        background:-ms-linear-gradient(top, #c27878 5%, #ff3d3d 100%);
-        background:linear-gradient(to bottom, #c27878 5%, #ff3d3d 100%);
-        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c27878', endColorstr='#ff3d3d',GradientType=0);
-        background-color:#c27878;
-        -moz-border-radius:10px;
-        -webkit-border-radius:10px;
-        border-radius:10px;
-        border:1px solid #8c1919;
-        color:#ffffff;
-        text-decoration:none;
-        text-shadow:0px 1px 0px #66293f;
-      }
-      .badMoose:hover {
-        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff3d3d), color-stop(1, #c27878));
-        background:-moz-linear-gradient(top, #ff3d3d 5%, #c27878 100%);
-        background:-webkit-linear-gradient(top, #ff3d3d 5%, #c27878 100%);
-        background:-o-linear-gradient(top, #ff3d3d 5%, #c27878 100%);
-        background:-ms-linear-gradient(top, #ff3d3d 5%, #c27878 100%);
-        background:linear-gradient(to bottom, #ff3d3d 5%, #c27878 100%);
-        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3d3d', endColorstr='#c27878',GradientType=0);
-        background-color:#ff3d3d;
-      }
-      .badMoose:active {
         position:relative;
         top:1px;
       }
@@ -118,31 +82,30 @@
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
           s4() + '-' + s4() + s4() + s4();
       };
-      window.herd = [];
       window.spawnMoose = function(){
-        var moose = window.open(window.location.href, 'moose-' + guid(), config='height=400, width=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no, top=' + Math.ceil((Math.random() * screen.height) + (Math.random() * 100)) + ', left=' + Math.ceil((Math.random() * screen.width) + (Math.random() * 100)));
-        herd.push(moose);
+        return window.open(window.location.href, 'moose-' + guid(), config='height=400, width=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no, top=' + Math.ceil((Math.random() * screen.height) + (Math.random() * 100)) + ', left=' + Math.ceil((Math.random() * screen.width) + (Math.random() * 100)));
       };
-      window.removeMoose = function(){
-        var moose = herd.shift();
+      window.autoMoose = function(){
+        var moose = window.spawnMoose();
         if ( typeof(moose) === 'undefined' ) {
-          alert("Sorry!  This is the only moose.  Try adding more.");
-        } else {
-          moose.close();
+          alert("To experience the auto-moose hypermedia GESAMTKUNSTWERK, plz allow popups from " + window.location.href + " ^___^");
         }
-      }
+      };
 
       // MOOSE CONTROL
 
-      var form = document.getElementById('mooseForm');
-      var goodMoose = '<input type="button" class="moose goodMoose" value="+1 moose" onclick="window.spawnMoose();"/>';
-      var badMoose = '<input type="button" class="moose badMoose" value="-1 moose" onclick="window.removeMoose();"/>';
       if ( window.name === '' ) {
         document.title = "Moose control";
-        form.innerHTML = goodMoose + badMoose
+        var form = document.getElementById('mooseForm');
+        var goodMoose = '<input type="button" class="goodMoose" value="add a moose" onclick="window.spawnMoose();"/>';
+        form.innerHTML = goodMoose;
       } else {
         document.title = window.name;
       }
+
+      // AUTO MOOSE
+
+      window.setTimeout(autoMoose, 6340 + Math.ceil(Math.random() * 100));
 
     </script>
   </footer>
